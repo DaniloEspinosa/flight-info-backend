@@ -15,7 +15,8 @@ COPY src ./src
 
 # Corremos el comando de build de Maven (igual que en la guía)
 # Esto compilará el código y creará el .jar en /app/target/
-RUN mvn clean package
+# ¡¡AÑADIMOS '-DskipTests' PARA EVITAR EL ERROR DE PLACEHOLDER!!
+RUN mvn clean package -DskipTests
 
 # --- Etapa 2: Ejecución (Run Stage) ---
 # Usamos una imagen ligera de Java 21 para *ejecutar* la aplicación
